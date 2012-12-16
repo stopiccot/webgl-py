@@ -1,2 +1,2 @@
-from flask_website import app
-app.run()
+import app
+app.app.run()
