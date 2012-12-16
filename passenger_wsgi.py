@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, '/opt/www/webgl-py')
+sys.path.insert(0, '/var/www/webgl-py')
 
 from app import app as application
 
