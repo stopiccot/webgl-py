@@ -1,7 +1,4 @@
-import sys
-sys.path.insert(0, '/var/www/webgl-py')
+import sys, os
+sys.path.insert(0, os.getcwd())
 
 from app import app as application
-
-if __name__ == "__main__":
-    application.run(host='0.0.0.0')
