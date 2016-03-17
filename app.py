@@ -1,5 +1,6 @@
 import coffeescript, flask
 app = flask.Flask(__name__)
+app.config.update(SERVER_NAME = 'stopiccot.com')
 
 @app.route("/")
 def home():
