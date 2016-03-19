@@ -8,7 +8,11 @@ def home():
 
 @app.route("/", subdomain = "qr")
 def qr():
-	return flask.render_template('qr_index.html')
+    return flask.render_template('qr_index.html')
+
+@app.route("/", subdomain = "sun")
+def sun():
+    return flask.render_template('sun_index.html')
 
 @app.route('/js/<file>')
 def js(file):
@@ -18,6 +22,11 @@ app.add_url_rule(app.static_url_path + '/<path:filename>',
                  endpoint = 'static',
                  view_func = app.send_static_file,
                  subdomain = 'qr')
+
+app.add_url_rule(app.static_url_path + '/<path:filename>',
+                 endpoint = 'static',
+                 view_func = app.send_static_file,
+                 subdomain = 'sun')
 
 if __name__ == "__main__":
     app.config.update(SERVER_NAME = 'stopiccot.dev:4568')
