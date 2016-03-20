@@ -1,5 +1,5 @@
 #svg_div {
-    background: url('../sun.png') no-repeat 0 0;
+    /*background: url('../sun.png') no-repeat 0 0;*/
 }
 
 html,body { /* so that the #dv can fill up the page */
