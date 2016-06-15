@@ -16,7 +16,7 @@
 
             svg.attr({ "width": size, "height": size});
 
-                        var rayCount = 13;
+            var rayCount = 13;
             var innerR = 89.0;
             var outerR = 111.0;
 
@@ -48,6 +48,15 @@
             }
 
             svg.append($(createSvgElement("path")).attr({ "stroke": "black", "stroke-width": "0", "fill": "#FBA208", "fill-opacity": 1.0, "d": d}));
+
+            var lineCount = 150;
+            for (var i = 0; i < lineCount; i++) {
+                svg.append($(createSvgElement("path")).attr({ "stroke": "white", "stroke-width": "0.3", "stroke-opacity": 0.4, "fill": "none",
+                    "d": "M " + (size / 2) + " " + (size / 2) + 
+                         "L " + (size / 2 + 150 * Math.cos(i * 2 * Math.PI / lineCount)) + 
+                          " " + (size / 2 + 150 * Math.sin(i * 2 * Math.PI / lineCount))
+                })); 
+            }
                 
             svg.append($(createSvgElement("circle")).attr({ "cx": size / 2, "cy": size / 2, "r": size * 0.235, "fill": "#FFFF23", "stroke-width": 0}));
             
@@ -57,14 +66,14 @@
             var eyeHeight = 20;
             var eyeCurvature = 7;
 
-            svg.append($(createSvgElement("path")).attr({ "stroke": "black", "stroke-width": "5", "fill": "transparent",
+            svg.append($(createSvgElement("path")).attr({ "stroke": "black", "stroke-width": "5", "fill": "none",
                 "d": "M " + (size / 2 - eyeX - eyeWidth / 2 + 0 * eyeCurvature) + " " + (size / 2 - eyeY) + 
                      "C " + (size / 2 - eyeX - eyeWidth / 2 + 1 * eyeCurvature) + " " + (size / 2 - eyeY - eyeHeight) + 
                      ", " + (size / 2 - eyeX + eyeWidth / 2 - 1 * eyeCurvature) + " " + (size / 2 - eyeY - eyeHeight) + 
                      ", " + (size / 2 - eyeX + eyeWidth / 2 - 0 * eyeCurvature) + " " + (size / 2 - eyeY) 
             }));
 
-            svg.append($(createSvgElement("path")).attr({ "stroke": "black", "stroke-width": "5", "fill": "transparent",
+            svg.append($(createSvgElement("path")).attr({ "stroke": "black", "stroke-width": "5", "fill": "none",
                 "d": "M " + (size / 2 + eyeX - eyeWidth / 2 + 0 * eyeCurvature) + " " + (size / 2 - eyeY) + 
                      "C " + (size / 2 + eyeX - eyeWidth / 2 + 1 * eyeCurvature) + " " + (size / 2 - eyeY - eyeHeight) + 
                      ", " + (size / 2 + eyeX + eyeWidth / 2 - 1 * eyeCurvature) + " " + (size / 2 - eyeY - eyeHeight) + 
@@ -75,12 +84,12 @@
             var mouthHeight = 55;
             var mouthY = 9;
 
-            svg.append($(createSvgElement("path")).attr({ "stroke": "black", "stroke-width": "5", "fill": "transparent",
+            svg.append($(createSvgElement("path")).attr({ "stroke": "black", "stroke-width": "5", "fill": "none",
                 "d": "M " + (size / 2 - mouthWidth / 2) + " " + (size / 2 - mouthY) +
                      "C " + (size / 2 - mouthWidth / 2) + " " + (size / 2 - mouthY + mouthHeight) +
                      ", " + (size / 2 + mouthWidth / 2) + " " + (size / 2 - mouthY + mouthHeight) +
                      ", " + (size / 2 + mouthWidth / 2) + " " + (size / 2 - mouthY)
-            }));           
+            }));
         }
 
         $(generateSvg);
